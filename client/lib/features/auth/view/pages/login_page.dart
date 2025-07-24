@@ -3,16 +3,15 @@ import 'package:client/features/auth/view/widgets/custom_gradient_button.dart';
 import 'package:client/features/auth/view/widgets/text_input_fields.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends State<LoginPage> {
   final TextEditingController mailController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -20,7 +19,6 @@ class _SignupPageState extends State<SignupPage> {
   @override
   void dispose() {
     mailController.dispose();
-    nameController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -40,7 +38,7 @@ class _SignupPageState extends State<SignupPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Signup Page",
+                    "Login Page",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -54,24 +52,19 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   SizedBox(height: 15),
                   TextInputFields(
-                    controller: nameController,
-                    hintText: "Enter your name",
-                  ),
-                  SizedBox(height: 15),
-                  TextInputFields(
                     controller: passwordController,
                     hintText: "Enter your password",
                   ),
                   SizedBox(height: 40),
-                  CustomGradientButton(text: "Signup", onPressed: () {}),
+                  CustomGradientButton(text: "Login", onPressed: () {}),
                   SizedBox(height: 20),
                   RichText(
                     text: TextSpan(
-                      text: "Already have an account ? ",
+                      text: "Don't have an account ? ",
                       style: TextStyle(color: Colors.white, fontSize: 12),
                       children: [
                         TextSpan(
-                          text: "Login",
+                          text: "Signup",
                           style: TextStyle(color: Pallete.gradient1),
                         ),
                       ],
