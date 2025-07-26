@@ -11,7 +11,8 @@ engine = create_engine(DATABASE_URL) #central source of connection to database
 sessionLocal = sessionmaker(
     autoflush=False,
     bind=engine,
-) #a factory to create session to interact with database
+) 
+#a factory to create session to interact with database
 
 class User(BaseModel):
     name : str
