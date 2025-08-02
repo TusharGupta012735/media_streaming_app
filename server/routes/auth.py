@@ -6,6 +6,8 @@ from models.user import User
 from pydantic_schemas.user_create import UserCreate
 from sqlalchemy.orm import Session
 
+from pydantic_schemas.user_login import UserLogin
+
 router = APIRouter() #this doesnt create a new fastapi instance for every route
 
 @router.post("/signup")
@@ -27,3 +29,6 @@ def signup(user: UserCreate, db: Session = Depends(get_db)): #step-1 data input 
     db.refresh(user_db)
     return user_db
     
+@router.post("/login")
+def login_user(user : UserLogin, db : Session = Depends(get_db)):
+    pass
